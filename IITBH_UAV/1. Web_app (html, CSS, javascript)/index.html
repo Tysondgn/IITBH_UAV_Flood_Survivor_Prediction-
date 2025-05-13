@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI on Edge Real-time Disaster Management System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Define loadCustomScript and handleLeafletError before the Leaflet script -->
+    <script>
+        // Function to load script.js after Leaflet is loaded
+        function loadCustomScript() {
+            const script = document.createElement('script');
+            script.src = 'script.js';
+            document.body.appendChild(script);
+        }
+
+        // Fallback if Leaflet fails to load
+        function handleLeafletError() {
+            console.error('Failed to load Leaflet library. Please check your internet connection or try again later.');
+            const mapDiv = document.getElementById('map');
+            mapDiv.innerHTML = '<p style="color: red; text-align: center;">Error: Unable to load map. Please check your internet connection.</p>';
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>AI on Edge Real-time Disaster Management System</h1>
+        <div class="controls">
+            <button id="mapBtn" class="btn map-btn">Map</button>
+            <button id="floodPredictionBtn" class="btn flood-prediction-btn">Next day flood prediction</button>
+        </div>
+        <div class="map-container">
+            <div id="map" style="height: 500px; width: 100%; max-width: 500px;"></div>
+            <div class="caption">Number of survivors detected within different cells</div>
+        </div>
+        <div class="status-container">
+            <div class="status-box">
+                <span class="label">Total No. of Survivors</span>
+                <span id="totalSurvivors" class="value">0</span>
+            </div>
+            <div class="status-box">
+                <span class="label">Flood</span>
+                <span id="floodCount" class="value">F</span>
+            </div>
+            <div class="status-box">
+                <span class="label">No Flood</span>
+                <span id="noFloodCount" class="value">NF</span>
+            </div>
+            <div class="status-box">
+                <span class="label">Building damage</span>
+                <span id="buildingDamageCount" class="value">BD</span>
+            </div>
+        </div>        
+        <hr class="footer-line">
+        <footer>IIT Bhilai</footer>
+    </div>
+    <!-- Load Leaflet JavaScript, which will call loadCustomScript once loaded -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" onload="loadCustomScript()" onerror="handleLeafletError()"></script>
+</body>
+</html>
