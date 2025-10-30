@@ -112,7 +112,6 @@ cd IITBH_UAV
 2️⃣ Install dependencies
 ```bash
 pip install numpy pandas opencv-python matplotlib scikit-learn pillow pyserial
-
 ```
 ### 🧾 Requirements Summary
 
